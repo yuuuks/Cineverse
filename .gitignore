@@ -1,0 +1,75 @@
+# Dépendances
+node_modules/
+/.pnp
+.pnp.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Variables d'environnement
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# Build / Production
+/frontend/build
+/frontend/dist
+/backend/build
+/backend/dist
+build/
+dist/
+
+# Testing
+/frontend/coverage
+/backend/coverage
+.nyc_output/
+
+# Logs
+logs
+*.log
+
+# Base de données locale
+*.sqlite
+*.sqlite3
+*.db
+
+# Fichiers uploadés
+uploads/
+temp/
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.npm
+
+# IDE et éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.iml
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Vite (si vous utilisez Vite pour React)
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Fichiers de session
+sessions/
+
+# Misc
+*.seed
+*.pid
+*.pid.lock
