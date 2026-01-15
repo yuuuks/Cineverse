@@ -1,0 +1,26 @@
+{
+  "name": "cineverse",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000C\u0000i\u0000n\u0000e\u0000v\u0000e\u0000r\u0000s\u0000e\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuuuks/Cineverse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yuuuks/Cineverse/issues"
+  },
+  "homepage": "https://github.com/yuuuks/Cineverse#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
