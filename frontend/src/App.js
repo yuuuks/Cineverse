@@ -1,41 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import axios from 'axios';
+import React from 'react';
+import Navbar from './components/Navbar';
+import BackgroundEffects from './components/BackgroundEffects';
+import Hero from './components/Hero';
+import FeaturedMovies from './components/FeaturedMovies';
+import { featuredMovies, trendingMovies } from './data/movies';
 
-function App() {
-  const [pokemon, setPokemon] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/pokemon/pikachu')
-      .then(response => {
-        setPokemon(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Erreur:', error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <p>Chargement...</p>;
-
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>PokéDex Netflix Style</h1>
-        {pokemon && (
-          <div>
-            <h2>{pokemon.name.toUpperCase()}</h2>
-            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-            <p>Poids: {pokemon.weight}</p>
-            <p>Taille: {pokemon.height}</p>
-            <p>Type: {pokemon.types.map(t => t.type.name).join(', ')}</p>
-          </div>
-        )}
-      </header>
+    <div className="min-h-screen bg-zinc-950 text-white overflow-x-hidden">
+      <BackgroundEffects />
+      <Navbar />
+      <Hero />
+      <div className="min-h-screen bg-zinc-950 text-white">
+      <FeaturedMovies movies={featuredMovies} />
+    </div>
     </div>
   );
 }
-
-export default App;
