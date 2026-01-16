@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 export default function CategorySection({ categories }) {
   return (
     <section className="relative z-10 py-24 space-y-16">
@@ -40,6 +42,12 @@ function CategoryGrid({ category }) {
 }
 
 function MovieCard({ movie, categoryColor }) {
+  const navigate = useNavigate();
+
+  const handleWatchMovie = () => {
+    navigate(`/watch/${movie.id}`);
+  };
+
   return (
     <div className="group relative cursor-pointer">
       <div className="relative overflow-hidden rounded-xl bg-zinc-900 border border-white/10 hover:border-white/30 transition-all duration-300">
@@ -67,7 +75,10 @@ function MovieCard({ movie, categoryColor }) {
                 </>
               )}
             </div>
-            <button className="w-full py-2 bg-white text-black rounded-lg font-semibold text-sm hover:bg-white/90 transition-all">
+            <button 
+              onClick={handleWatchMovie}
+              className="w-full py-2 bg-white text-black rounded-lg font-semibold text-sm hover:bg-white/90 transition-all"
+            >
               ▶ Regarder
             </button>
           </div>

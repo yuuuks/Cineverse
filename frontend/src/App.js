@@ -1,21 +1,15 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import BackgroundEffects from './components/BackgroundEffects';
-import Hero from './components/Hero';
-import FeaturedMovies from './components/FeaturedMovies';
-import CategorySection from './components/CategorySection';
-import { featuredMovies, movieCategories } from './data/movies';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import WatchPage from './pages/WatchPage';
 
 export default function App() {
   return (
     <div className="min-h-screen bg-zinc-950 text-white overflow-x-hidden">
-      {/* <BackgroundEffects /> */}
-      <Navbar />
-      <Hero />
-      <div className="min-h-screen bg-zinc-950 text-white">
-      <FeaturedMovies movies={featuredMovies} />
-      <CategorySection categories={movieCategories} />
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/watch/:movieId" element={<WatchPage />} />
+      </Routes>
     </div>
   );
 }

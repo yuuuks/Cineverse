@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 export default function HeroFullscreenVideo() {
+  const navigate = useNavigate();
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isPlayerReady, setIsPlayerReady] = useState(false);
   const playerRef = useRef(null);
   
   const trendingMovie = {
+    id: "la-femme-de-menage",
     title: "La femme de ménage",
     year: 2025,
     rating: 9.2,
@@ -53,7 +57,6 @@ export default function HeroFullscreenVideo() {
     }
   }, []);
 
-
   const toggleMute = () => {
     if (playerRef.current && isPlayerReady) {
       if (isMuted) {
@@ -74,6 +77,10 @@ export default function HeroFullscreenVideo() {
       }
       setIsPlaying(!isPlaying);
     }
+  };
+
+  const handleWatchMovie = () => {
+    navigate(`/watch/${trendingMovie.id}`);
   };
 
   return (
@@ -127,7 +134,10 @@ export default function HeroFullscreenVideo() {
           </div>
 
           <div className="flex gap-4 pt-4 flex-wrap">
-            <button className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-lg font-bold text-base hover:bg-white/90 transition-all shadow-2xl hover:scale-105">
+            <button 
+              onClick={handleWatchMovie}
+              className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-lg font-bold text-base hover:bg-white/90 transition-all shadow-2xl hover:scale-105"
+            >
               <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
               </svg>
