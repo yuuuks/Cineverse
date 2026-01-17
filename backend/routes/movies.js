@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const supabase = require('../config/supabase');
 
-// GET - Récupérer tous les films
 router.get('/', async (req, res) => {
   try {
     const { data, error } = await supabase
@@ -25,7 +24,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET - Récupérer les films en vedette
 router.get('/featured', async (req, res) => {
   try {
     const { data, error } = await supabase
@@ -50,7 +48,6 @@ router.get('/featured', async (req, res) => {
   }
 });
 
-// GET - Récupérer un film par ID
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -83,7 +80,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST - Créer un nouveau film
 router.post('/', async (req, res) => {
   try {
     const movieData = req.body;
@@ -108,7 +104,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// PUT - Mettre à jour un film
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -142,7 +137,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE - Supprimer un film
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;

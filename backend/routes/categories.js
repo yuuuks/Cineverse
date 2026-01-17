@@ -2,10 +2,8 @@ const express = require('express');
 const router = express.Router();
 const supabase = require('../config/supabase');
 
-// GET - Récupérer toutes les catégories avec leurs films
 router.get('/', async (req, res) => {
   try {
-    // Récupérer les catégories
     const { data: categories, error: categoriesError } = await supabase
       .from('categories')
       .select('*')
@@ -13,7 +11,6 @@ router.get('/', async (req, res) => {
 
     if (categoriesError) throw categoriesError;
 
-    // Pour chaque catégorie, récupérer ses films
     const categoriesWithMovies = await Promise.all(
       categories.map(async (category) => {
         const { data: movies, error: moviesError } = await supabase
@@ -47,7 +44,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET - Récupérer une catégorie par ID avec ses films
+
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -67,7 +64,6 @@ router.get('/:id', async (req, res) => {
       });
     }
 
-    // Récupérer les films de cette catégorie
     const { data: movies, error: moviesError } = await supabase
       .from('movies')
       .select('*')
@@ -91,7 +87,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST - Créer une nouvelle catégorie
 router.post('/', async (req, res) => {
   try {
     const categoryData = req.body;
