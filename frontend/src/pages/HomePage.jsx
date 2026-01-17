@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
+import HeroFullscreenVideo from '../components/HeroFullscreenVideo-dynamic';
 import FeaturedMovies from '../components/FeaturedMovies';
 import CategorySection from '../components/CategorySection';
 import ApiService from '../services/api';
@@ -73,7 +73,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <Hero featuredMovie={featuredMovies[0]} />
+      <HeroFullscreenVideo />
       <div className="min-h-screen bg-zinc-950 text-white">
         <FeaturedMovies movies={featuredMovies} />
         <CategorySection categories={categories} />

@@ -88,6 +88,26 @@ class ApiService {
       body: JSON.stringify(categoryData),
     });
   }
+
+  // Récupérer le film Hero
+  async getHeroMovie() {
+    return this.request('/hero');
+  }
+
+  // Définir un nouveau film Hero
+  async setHeroMovie(movieId) {
+    return this.request('/hero', {
+      method: 'POST',
+      body: JSON.stringify({ movie_id: movieId }),
+    });
+  }
+
+  // Réinitialiser le Hero (revenir au défaut)
+  async resetHeroMovie() {
+    return this.request('/hero', {
+      method: 'DELETE',
+    });
+  }
 }
 
 export default new ApiService();

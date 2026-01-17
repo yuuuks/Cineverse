@@ -10,6 +10,7 @@ app.use(express.json());
 
 const moviesRoutes = require('./routes/movies');
 const categoriesRoutes = require('./routes/categories');
+const heroRoutes = require('./routes/hero');
 
 
 app.get('/api', (req, res) => {
@@ -26,6 +27,7 @@ app.get('/api', (req, res) => {
 // Routes API
 app.use('/api/movies', moviesRoutes);
 app.use('/api/categories', categoriesRoutes);
+app.use('/api/hero', heroRoutes);
 
 // Gestion des erreurs 404
 app.use((req, res) => {

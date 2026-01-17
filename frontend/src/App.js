@@ -5,6 +5,7 @@ import WatchPage from './pages/WatchPage';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import AddMovie from './pages/Admin/AddMovie';
 import EditMovie from './pages/Admin/EditMovie';
+import ManageHero from './pages/ManageHero';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/add-movie" element={<AddMovie />} />
         <Route path="/admin/edit-movie/:movieId" element={<EditMovie />} />
+        <Route path="/admin/manage-hero" element={<ManageHero />} />
       </Routes>
     </div>
   );
